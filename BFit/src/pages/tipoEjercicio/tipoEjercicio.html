@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tipo Ejercicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content text-center>
+
+  <h2>Gestionar Tipo Ejercicio</h2>
+
+  <ion-list>
+    <button ion-item *ngFor="let tipoEjercicio of listTipoEjercicio"(click)="openTipoEjercicio(tipoEjercicio)">
+      {{ tipoEjercicio.descripcion }} {{ tipoEjercicio.unidadMedida!==''?(' (' + tipoEjercicio.unidadMedida + ')'):''}}
+    </button>
+  </ion-list>
+
+  <button ion-button full (click)="createTipoEjercicio()">Añadir Tipo Ejercicio</button>
+
+</ion-content>
