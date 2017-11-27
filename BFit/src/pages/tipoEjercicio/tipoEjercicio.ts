@@ -40,7 +40,6 @@ export class TipoEjercicio {
   openTipoEjercicio(tipoEjercicio) {
     let alertTipoEjercicio =  this.alertCtrl.create({
       title: 'Tipo Ejercicio',
-      subTitle: 'Al eliminar un tipo de ejercicio se eliminarán todos los ejercicios asociados al tipo',
       inputs: [
         {
           name: 'id',
@@ -107,7 +106,7 @@ export class TipoEjercicio {
   deleteTipoEjercicio(tipoEjercicio) {
     let alertDeleteTipoEjercicio = this.alertCtrl.create({
       title: 'Eliminar Ejercicio',
-      subTitle: '¿Está seguro de que desea eliminar el tipo de ejercicio ' + tipoEjercicio.descripcion + '?',
+      subTitle: '¿Está seguro de que desea eliminar el tipo de ejercicio ' + tipoEjercicio.descripcion + '?. Al eliminar un tipo de ejercicio se eliminarán todos los ejercicios asociados al tipo',
       buttons: [
         {
           text: 'Cancelar',

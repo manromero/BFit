@@ -4,6 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { TipoEjercicio } from '../pages/tipoEjercicio/tipoEjercicio';
+
 import { SQLite } from '@ionic-native/sqlite';
 
 import { TipoEjercicioServiceProvider } from '../providers/tipo-ejercicio-service/tipo-ejercicio-service';
@@ -95,28 +97,13 @@ export class MyApp {
 
                                     console.log('Paso 3 Terminado...');
                                     console.log('Se ha inicializado correctamente la tabla tipos de ejercicios');
-                                    // Añadimos la pagina principal
+                                    console.log('Tras crear base de datos vamos a la página inicial');
+                                    // Añadimos la pagina principal y la gestión de tipos de ejercicios
                                     this.pages = [];
-                                    const principalPage = { title: 'Principal', component: HomePage };
-                                    this.pages.push(principalPage);
-                                    console.log('Recuperamos los tipos de ejercicio...');
-                                    // Los tipos de ejercicios serán los que se mostrarán en el menú
-                                    this.tipoEjercicioServiceProvider.getAll().then(data => {
-
-                                      for(let i = 0; i < data.length; i++) {
-                                        const descripcion = data[i].descripcion;
-                                        const page = { title: descripcion, component: HomePage };
-                                        this.pages.push(page);
-                                      }
-
-                                      console.log('Tras crear base de datos vamos a la página inicial');
-                                      this.splashScreen.hide();
-                                      this.rootPage = HomePage;
-
-                                  }
-
-                                );
-
+                                    this.pages.push({ title: 'Principal', component: HomePage });
+                                    this.pages.push({ title: 'Gestión Tipologías', component: TipoEjercicio });
+                                    this.splashScreen.hide();
+                                    this.rootPage = HomePage;
                               }
 
                             );
