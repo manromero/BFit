@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Histórico</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content text-center>
+
+  <h2>Histórico de Ejercicios</h2>
+
+  <ion-item>
+    <ion-label>Seleccione Tipo</ion-label>
+    <ion-select [(ngModel)]="idTipoEjercicio">
+      <ion-option *ngFor="let tipoEjercicio of listTipoEjercicio" [value]="tipoEjercicio.id">{{ tipoEjercicio.descripcion }} {{ tipoEjercicio.unidadMedida!==''?(' (' + tipoEjercicio.unidadMedida + ')'):''}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+</ion-content>

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { TipoEjercicio } from '../pages/tipoEjercicio/tipoEjercicio';
+import { Historico } from '../pages/historico/historico';
 
 import { SQLite } from '@ionic-native/sqlite';
 
@@ -101,6 +102,7 @@ export class MyApp {
                                     // Añadimos la pagina principal y la gestión de tipos de ejercicios
                                     this.pages = [];
                                     this.pages.push({ title: 'Principal', component: HomePage });
+                                    this.pages.push({ title: 'Histórico', component: Historico })
                                     this.pages.push({ title: 'Gestión Tipologías', component: TipoEjercicio });
                                     this.splashScreen.hide();
                                     this.rootPage = HomePage;
