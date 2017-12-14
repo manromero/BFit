@@ -58,8 +58,7 @@ export class MyApp {
     this.sqlite.create({
       name: 'data.db',
       location: 'default' // the location field is required
-    })
-      .then((db) => {
+    }).then((db) => {
         this.tipoEjercicioServiceProvider.setDatabase(db);
         this.diaTrabajoServiceProvider.setDatabase(db);
         this.ejercicioServiceProvider.setDatabase(db);
@@ -79,57 +78,28 @@ export class MyApp {
                     this.serieServiceProvider.createTable().then(
 
                       () => {
-                        console.log('Tabla Serie creada...');
-                        console.log('Inicializando Tipos de ejercicio Paso 1...');
-                        this.tipoEjercicioServiceProvider.inicializarTablePaso1().then(
 
-                          () => {
-                            console.log('Paso 1 Terminado...');
-                            console.log('Inicializando Tipos de ejercicio Paso 2...');
-                            this.tipoEjercicioServiceProvider.inicializarTablePaso2().then(
-
-                              () => {
-                                console.log('Paso 2 Terminado...');
-                                console.log('Inicializando Tipos de ejercicio Paso 3...');
-
-                                this.tipoEjercicioServiceProvider.inicializarTablePaso3().then(
-
-                                  () => {
-
-                                    console.log('Paso 3 Terminado...');
-                                    console.log('Se ha inicializado correctamente la tabla tipos de ejercicios');
-                                    console.log('Tras crear base de datos vamos a la página inicial');
-                                    // Añadimos la pagina principal y la gestión de tipos de ejercicios
-                                    this.pages = [];
-                                    this.pages.push({ title: 'Principal', component: HomePage });
-                                    this.pages.push({ title: 'Histórico', component: Historico })
-                                    this.pages.push({ title: 'Gestión Tipologías', component: TipoEjercicio });
-                                    this.splashScreen.hide();
-                                    this.rootPage = HomePage;
-                              }
-
-                            );
-
-                          }
-
-                        );
-
+                        console.log('Tabla Serie Creada...');
+                        console.log('Se ha inicializado correctamente la tabla tipos de ejercicios');
+                        console.log('Tras crear base de datos vamos a la página inicial');
+                        // Añadimos la pagina principal y la gestión de tipos de ejercicios
+                        this.pages = [];
+                        this.pages.push({ title: 'Principal', component: HomePage });
+                        this.pages.push({ title: 'Histórico', component: Historico })
+                        this.pages.push({ title: 'Gestión Tipologías', component: TipoEjercicio });
+                        this.splashScreen.hide();
+                        this.rootPage = HomePage;
                       }
+
 
                     );
                   }
-
                 );
-
               }
-            );
-
+            )
           }
-
-        )
-      });
-
-      });
+        );
+    });
   }
 
 }
